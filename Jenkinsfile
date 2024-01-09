@@ -10,6 +10,10 @@ pipeline {
         label 'agent'
     }
 
+    tools {
+        terraform 'Terraform'
+    }
+
     stages {
         stage('Get Code') {
             steps {
@@ -92,7 +96,7 @@ pipeline {
         string(name: 'backendDockerTag', defaultValue: '', description: 'Backend docker image tag')
         string(name: 'frontendDockerTag', defaultValue: '', description: 'Frontend docker image tag')
     }
-    
+
     environment {
         PIP_BREAK_SYSTEM_PACKAGES=1
     }
