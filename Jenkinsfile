@@ -57,7 +57,7 @@ pipeline {
         stage('Run terraform') {
             steps {
                 dir('Terraform') {                
-                    git branch: 'main', url: 'https://github.com/sjerzak/Terraform'
+                    git branch: 'master', url: 'https://github.com/sjerzak/Terraform'
                     withAWS(credentials:'AWS', region: 'us-east-1') {
                             sh 'terraform init -backend-config=bucket=slawomir-jerzak-panda-devops-core-16'
                             sh 'terraform apply -auto-approve -var bucket_name=slawomir-jerzak-panda-devops-core-16'
